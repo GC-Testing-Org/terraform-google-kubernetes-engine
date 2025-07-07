@@ -25,7 +25,7 @@ resource "google_compute_instance" "vm" {
       image = "debian-cloud/debian-12"
     }
   }
-  can_ip_forward = true
+  can_ip_forward = false
   shielded_instance_config {
     enable_secure_boot = true
   }
