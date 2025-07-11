@@ -48,6 +48,10 @@ resource "google_compute_subnetwork" "main" {
     range_name    = "cft-gke-test-services-${random_string.suffix.result}"
     ip_cidr_range = "192.168.64.0/18"
   }
+  log_config {
+    metadata      = "INCLUDE_ALL_METADATA"
+    flow_sampling = "1"
+  }
 }
 
 module "example" {
@@ -62,4 +66,3 @@ module "example" {
   region                         = var.region
   subnetwork                     = google_compute_subnetwork.main.name
 }
-
